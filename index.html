@@ -3,106 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A fancy Hello World welcome page." />
     <title>Hello, World!</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-      :root { color-scheme: dark; }
+      :root {
+        color-scheme: dark;
+        --ink: #f8fafc;
+        --muted: #cbd5e1;
+        --accent: #a78bfa;
+        --accent-2: #22d3ee;
+      }
+
       * { box-sizing: border-box; }
+
       body {
-        margin: 0;
         min-height: 100vh;
+        margin: 0;
         display: grid;
         place-items: center;
         overflow: hidden;
-        background: #0b1020;
-        color: #f8fbff;
-        font-family: Manrope, system-ui, sans-serif;
+        padding: 1.5rem;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 18%, rgba(34, 211, 238, .22), transparent 25rem),
+          radial-gradient(circle at 88% 80%, rgba(167, 139, 250, .25), transparent 28rem),
+          #080b18;
       }
+
       .orb {
         position: fixed;
-        width: 34rem;
+        width: 17rem;
         aspect-ratio: 1;
         border-radius: 50%;
-        filter: blur(12px);
-        opacity: .45;
-        animation: float 12s ease-in-out infinite alternate;
+        filter: blur(4px);
+        opacity: .34;
+        pointer-events: none;
+        animation: drift 9s ease-in-out infinite alternate;
       }
-      .orb.one { top: -15rem; left: -10rem; background: #5b5bf7; }
-      .orb.two { right: -13rem; bottom: -14rem; background: #00c6a7; animation-delay: -4s; }
+
+      .orb-one { top: -6rem; right: 13%; background: #7c3aed; }
+      .orb-two { bottom: -8rem; left: 8%; background: #0891b2; animation-delay: -4s; }
+
       main {
-        width: min(92%, 760px);
+        width: min(100%, 46rem);
         position: relative;
-        padding: clamp(2rem, 7vw, 5rem);
-        border: 1px solid rgba(255,255,255,.18);
-        border-radius: 28px;
-        background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
-        box-shadow: 0 30px 90px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.2);
+        padding: clamp(2rem, 7vw, 4.75rem);
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, .18);
+        border-radius: 2rem;
+        background: rgba(15, 23, 42, .68);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, .42);
         backdrop-filter: blur(18px);
+        animation: appear .8s cubic-bezier(.2, .8, .2, 1) both;
       }
-      nav { display: flex; justify-content: flex-end; gap: 1.2rem; margin-bottom: clamp(2rem, 5vw, 4rem); }
-      nav a { color: #d7def1; font-size: .88rem; font-weight: 700; text-decoration: none; }
-      nav a:hover { color: #a9ffe9; }
+
       .eyebrow {
+        display: inline-flex;
+        gap: .5rem;
+        align-items: center;
         margin: 0 0 1.25rem;
-        font: 500 .78rem/1 "DM Mono", monospace;
-        letter-spacing: .14em;
+        color: #bae6fd;
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .13em;
         text-transform: uppercase;
-        color: #a9ffe9;
       }
+
+      .eyebrow::before {
+        content: "";
+        width: .6rem;
+        height: .6rem;
+        border-radius: 50%;
+        background: var(--accent-2);
+        box-shadow: 0 0 1rem var(--accent-2);
+      }
+
       h1 {
         margin: 0;
-        font-size: clamp(3.2rem, 12vw, 7.4rem);
-        line-height: .95;
+        font-size: clamp(3.2rem, 11vw, 6.8rem);
         letter-spacing: -.075em;
-      }
-      h1 span {
-        display: block;
-        background: linear-gradient(100deg, #fff 8%, #bfc5ff 45%, #75f7d5 92%);
+        line-height: .94;
+        background: linear-gradient(120deg, #fff, #ddd6fe 46%, #67e8f9);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
-      .message {
-        max-width: 34rem;
-        margin: 1.7rem 0 2.3rem;
-        font-size: clamp(1rem, 2vw, 1.18rem);
-        line-height: 1.75;
-        color: #d7def1;
+
+      p {
+        max-width: 31rem;
+        margin: 1.6rem auto 2rem;
+        color: var(--muted);
+        font-size: clamp(1rem, 2.5vw, 1.18rem);
+        line-height: 1.65;
       }
+
       button {
         border: 0;
         border-radius: 999px;
-        padding: .95rem 1.35rem;
-        color: #08101d;
-        background: #a9ffe9;
-        font: 700 .9rem/1 Manrope, sans-serif;
+        padding: .9rem 1.25rem;
         cursor: pointer;
-        box-shadow: 0 8px 22px rgba(112, 247, 213, .28);
+        color: #111827;
+        font: inherit;
+        font-weight: 800;
+        background: linear-gradient(110deg, #a5f3fc, #c4b5fd);
+        box-shadow: 0 .8rem 1.8rem rgba(34, 211, 238, .16);
         transition: transform .2s ease, box-shadow .2s ease;
       }
-      button:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(112, 247, 213, .38); }
-      button:focus-visible { outline: 3px solid white; outline-offset: 4px; }
-      .sparkle { display: inline-block; margin-right: .4rem; }
-      @keyframes float { to { transform: translate(4rem, 3rem) scale(1.12); } }
-      @media (prefers-reduced-motion: reduce) { .orb { animation: none; } button { transition: none; } }
+
+      button:hover { transform: translateY(-3px); box-shadow: 0 1.1rem 2rem rgba(167, 139, 250, .28); }
+      button:active { transform: translateY(0); }
+      #message { min-height: 1.5rem; margin: 1.4rem 0 0; color: #e9d5ff; font-size: .95rem; }
+
+      @keyframes appear { from { opacity: 0; transform: translateY(1.5rem) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes drift { to { transform: translate(2rem, 1.5rem) scale(1.15); } }
+
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
     </style>
   </head>
   <body>
-    <div class="orb one"></div>
-    <div class="orb two"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
     <main>
-      <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
-      <p class="eyebrow">A bright beginning</p>
-      <h1>Hello,<span>World!</span></h1>
-      <p class="message">Your corner of the internet is ready. Start small, stay curious, and make something wonderful.</p>
-      <button id="greetingButton"><span class="sparkle">✦</span>Say hello back</button>
+      <div class="eyebrow">A friendly beginning</div>
+      <h1>Hello, World!</h1>
+      <p>A tiny greeting, dressed up with a little color, motion, and a warm welcome.</p>
+      <button id="hello-button" type="button">Say hello back</button>
+      <p id="message" aria-live="polite"></p>
     </main>
     <script>
-      const button = document.querySelector('#greetingButton');
-      button.addEventListener('click', () => {
-        button.innerHTML = '<span class="sparkle">✦</span>Nice to meet you!';
+      const button = document.querySelector("#hello-button");
+      const message = document.querySelector("#message");
+      let greetings = ["Hello to you too! ✨", "Nice to meet you! 🌎", "You just made the page smile. 😊"];
+      let index = 0;
+
+      button.addEventListener("click", () => {
+        message.textContent = greetings[index++ % greetings.length];
       });
     </script>
   </body>
