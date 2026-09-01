@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Hello, World!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: dark; } * { box-sizing: border-box; }
+      body { min-height: 100vh; margin: 0; padding: 2rem; display: grid; place-items: center; background: radial-gradient(circle at 5% 10%, #3533a6 0, transparent 35%), radial-gradient(circle at 90% 90%, #087e6f 0, transparent 35%), #0b1020; color: #f8fbff; font-family: Manrope, system-ui, sans-serif; }
+      main { width: min(100%, 900px); padding: clamp(2rem, 6vw, 4.5rem); border: 1px solid rgba(255,255,255,.18); border-radius: 28px; background: rgba(13, 19, 39, .72); box-shadow: 0 30px 90px rgba(0,0,0,.38); backdrop-filter: blur(18px); }
+      nav { display: flex; justify-content: flex-end; gap: 1.2rem; margin-bottom: clamp(3rem, 7vw, 6rem); } nav a { color: #d7def1; font-size: .88rem; font-weight: 700; text-decoration: none; } nav a:hover, nav a[aria-current="page"] { color: #a9ffe9; }
+      .eyebrow { margin: 0 0 1rem; color: #a9ffe9; font: 500 .78rem/1 "DM Mono", monospace; letter-spacing: .14em; text-transform: uppercase; }
+      h1 { max-width: 12ch; margin: 0; font-size: clamp(2.7rem, 7vw, 5.5rem); line-height: 1; letter-spacing: -.065em; }
+      .intro { max-width: 43rem; margin: 1.5rem 0 2.5rem; color: #d7def1; font-size: 1.1rem; line-height: 1.75; }
+      .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; } .value { padding: 1.25rem; border-radius: 16px; background: rgba(255,255,255,.07); } .value strong { display: block; margin-bottom: .5rem; color: #a9ffe9; font-size: .92rem; } .value span { color: #c7cee1; font-size: .86rem; line-height: 1.5; }
+      @media (max-width: 560px) { body { padding: 1rem; } .values { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav>
+      <p class="eyebrow">The story so far</p>
+      <h1>Small starts. Big ideas.</h1>
+      <p class="intro">Hello, World! is a tiny space for ideas in motion. We believe the most interesting things begin with curiosity, a blank page, and the courage to make a first version.</p>
+      <section class="values" aria-label="Our values">
+        <div class="value"><strong>Stay curious</strong><span>Questions are where every good project starts.</span></div>
+        <div class="value"><strong>Make boldly</strong><span>Share the draft. Learn out loud. Keep moving.</span></div>
+        <div class="value"><strong>Keep it human</strong><span>Technology feels best when it makes room for people.</span></div>
+      </section>
+    </main>
+  </body>
+</html>

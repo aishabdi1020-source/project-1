@@ -41,6 +41,9 @@
         box-shadow: 0 30px 90px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.2);
         backdrop-filter: blur(18px);
       }
+      nav { display: flex; justify-content: flex-end; gap: 1.2rem; margin-bottom: clamp(2rem, 5vw, 4rem); }
+      nav a { color: #d7def1; font-size: .88rem; font-weight: 700; text-decoration: none; }
+      nav a:hover { color: #a9ffe9; }
       .eyebrow {
         margin: 0 0 1.25rem;
         font: 500 .78rem/1 "DM Mono", monospace;
@@ -90,6 +93,7 @@
     <div class="orb one"></div>
     <div class="orb two"></div>
     <main>
+      <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
       <p class="eyebrow">A bright beginning</p>
       <h1>Hello,<span>World!</span></h1>
       <p class="message">Your corner of the internet is ready. Start small, stay curious, and make something wonderful.</p>

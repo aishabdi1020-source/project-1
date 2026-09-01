@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Hello, World!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: dark; } * { box-sizing: border-box; }
+      body { min-height: 100vh; margin: 0; padding: 2rem; display: grid; place-items: center; background: radial-gradient(circle at 5% 10%, #3533a6 0, transparent 35%), radial-gradient(circle at 90% 90%, #087e6f 0, transparent 35%), #0b1020; color: #f8fbff; font-family: Manrope, system-ui, sans-serif; }
+      main { width: min(100%, 900px); padding: clamp(2rem, 6vw, 4.5rem); border: 1px solid rgba(255,255,255,.18); border-radius: 28px; background: rgba(13, 19, 39, .72); box-shadow: 0 30px 90px rgba(0,0,0,.38); backdrop-filter: blur(18px); }
+      nav { display: flex; justify-content: flex-end; gap: 1.2rem; margin-bottom: clamp(3rem, 7vw, 6rem); } nav a { color: #d7def1; font-size: .88rem; font-weight: 700; text-decoration: none; } nav a:hover, nav a[aria-current="page"] { color: #a9ffe9; }
+      .eyebrow { margin: 0 0 1rem; color: #a9ffe9; font: 500 .78rem/1 "DM Mono", monospace; letter-spacing: .14em; text-transform: uppercase; } h1 { margin: 0; font-size: clamp(2.7rem, 7vw, 5.5rem); line-height: 1; letter-spacing: -.065em; } .intro { margin: 1.5rem 0 2rem; color: #d7def1; font-size: 1.1rem; line-height: 1.75; }
+      form { display: grid; gap: 1rem; max-width: 39rem; } label { color: #d7def1; font-size: .85rem; font-weight: 700; } input, textarea { width: 100%; margin-top: .45rem; padding: .9rem 1rem; border: 1px solid rgba(255,255,255,.17); border-radius: 12px; outline: none; background: rgba(255,255,255,.07); color: white; font: inherit; } input:focus, textarea:focus { border-color: #a9ffe9; box-shadow: 0 0 0 3px rgba(169,255,233,.13); } textarea { min-height: 8rem; resize: vertical; } button { justify-self: start; margin-top: .5rem; padding: .95rem 1.35rem; border: 0; border-radius: 999px; background: #a9ffe9; color: #08101d; font: 700 .9rem/1 Manrope, sans-serif; cursor: pointer; } button:hover { transform: translateY(-2px); }
+      @media (max-width: 560px) { body { padding: 1rem; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a></nav>
+      <p class="eyebrow">Let’s make a start</p>
+      <h1>Say hello.</h1>
+      <p class="intro">Have an idea, a question, or simply a friendly wave? Send a note and we’ll be glad to hear from you.</p>
+      <form id="contactForm">
+        <label>Your name<input name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" required /></label>
+        <label>Email address<input name="email" type="email" autocomplete="email" placeholder="ada@example.com" required /></label>
+        <label>Your message<textarea name="message" placeholder="What’s on your mind?" required></textarea></label>
+        <button type="submit">Send message <span aria-hidden="true">→</span></button>
+      </form>
+    </main>
+    <script>
+      document.querySelector('#contactForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        event.currentTarget.querySelector('button').textContent = 'Message received — thank you!';
+      });
+    </script>
+  </body>
+</html>
