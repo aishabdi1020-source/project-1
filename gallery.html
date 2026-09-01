@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A colorful Hello World creative gallery." />
+    <title>Gallery | Hello, World!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: dark; } * { box-sizing: border-box; }
+      body { min-height: 100vh; margin: 0; padding: 2rem; background: radial-gradient(circle at 5% 10%, #3533a6 0, transparent 35%), radial-gradient(circle at 90% 90%, #087e6f 0, transparent 35%), #0b1020; color: #f8fbff; font-family: Manrope, system-ui, sans-serif; }
+      main { width: min(100%, 1100px); margin: 0 auto; padding: clamp(2rem, 6vw, 4.5rem); border: 1px solid rgba(255,255,255,.18); border-radius: 28px; background: rgba(13, 19, 39, .72); box-shadow: 0 30px 90px rgba(0,0,0,.38); backdrop-filter: blur(18px); }
+      nav { display: flex; justify-content: flex-end; gap: 1.2rem; margin-bottom: clamp(3rem, 7vw, 5rem); } nav a { color: #d7def1; font-size: .88rem; font-weight: 700; text-decoration: none; } nav a:hover, nav a[aria-current="page"] { color: #a9ffe9; }
+      .eyebrow { margin: 0 0 1rem; color: #a9ffe9; font: 500 .78rem/1 "DM Mono", monospace; letter-spacing: .14em; text-transform: uppercase; } h1 { margin: 0; font-size: clamp(2.7rem, 7vw, 5.5rem); line-height: 1; letter-spacing: -.065em; } .intro { max-width: 40rem; margin: 1.4rem 0 2.5rem; color: #d7def1; line-height: 1.75; }
+      .gallery { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 100px; gap: 1rem; } .tile { position: relative; overflow: hidden; display: flex; align-items: flex-end; min-height: 160px; padding: 1.2rem; border: 1px solid rgba(255,255,255,.15); border-radius: 18px; isolation: isolate; transition: transform .25s ease; } .tile:hover { transform: translateY(-5px); } .tile::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--art); transition: transform .35s ease; } .tile:hover::before { transform: scale(1.08); } .tile::after { content: ""; position: absolute; inset: 45% 0 0; z-index: -1; background: linear-gradient(transparent, rgba(4,8,21,.8)); } .tile strong { font-size: 1.1rem; } .tile small { display: block; margin-top: .2rem; color: #d7def1; } .wide { grid-column: span 7; grid-row: span 3; } .tall { grid-column: span 5; grid-row: span 5; } .half { grid-column: span 6; grid-row: span 3; }
+      .violet { --art: radial-gradient(circle at 70% 20%, #f0abff 0 3%, transparent 4%), radial-gradient(circle at 30% 60%, #7476ff 0 12%, transparent 13%), linear-gradient(135deg, #221b61, #784db4); } .mint { --art: radial-gradient(circle at 25% 30%, #e5ff8b 0 5%, transparent 6%), repeating-linear-gradient(115deg, rgba(255,255,255,.17) 0 2px, transparent 2px 15px), linear-gradient(135deg, #04665e, #2bc79b); } .coral { --art: radial-gradient(circle at 70% 35%, #ffd391 0 8%, transparent 9%), linear-gradient(150deg, #cf4e66, #fa9669); } .blue { --art: repeating-radial-gradient(circle at 25% 120%, transparent 0 19px, rgba(255,255,255,.15) 20px 22px), linear-gradient(135deg, #124581, #4e9ade); }
+      @media (max-width: 650px) { body { padding: 1rem; } nav { gap: .75rem; flex-wrap: wrap; } .gallery { grid-template-columns: 1fr; grid-auto-rows: auto; } .wide, .tall, .half { grid-column: span 1; grid-row: span 1; min-height: 220px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html" aria-current="page">Gallery</a><a href="contact.html">Contact</a></nav>
+      <p class="eyebrow">A collection of beginnings</p>
+      <h1>Color, shape, wonder.</h1>
+      <p class="intro">A small collection of imagined worlds—bright ideas captured in form, texture, and movement.</p>
+      <section class="gallery" aria-label="Creative gallery">
+        <article class="tile wide violet"><div><strong>Orbit</strong><small>Finding a new perspective</small></div></article>
+        <article class="tile tall mint"><div><strong>Flourish</strong><small>Growth in motion</small></div></article>
+        <article class="tile half coral"><div><strong>Warmth</strong><small>Made to be shared</small></div></article>
+        <article class="tile half blue"><div><strong>Ripple</strong><small>Every idea travels</small></div></article>
+      </section>
+    </main>
+  </body>
+</html>
